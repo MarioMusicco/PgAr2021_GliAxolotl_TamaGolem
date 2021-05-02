@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="13708b66-cfcc-4c47-8439-a0a74c92e284" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/serina_intellij.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/it/unibs/pga/tamagolem/CostantiTesto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TamaGolem.iml" beforeDir="false" afterPath="$PROJECT_DIR$/TamaGolem.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it/unibs/pga/tamagolem/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it/unibs/pga/tamagolem/Main.java" afterDir="false" />
-    </list>
+    <list default="true" id="13708b66-cfcc-4c47-8439-a0a74c92e284" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -63,15 +57,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -92,6 +84,7 @@
       <updated>1619878468812</updated>
       <workItem from="1619878471586" duration="943000" />
       <workItem from="1619880043327" duration="3609000" />
+      <workItem from="1619944109528" duration="38000" />
     </task>
     <servers />
   </component>
@@ -108,5 +101,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>
