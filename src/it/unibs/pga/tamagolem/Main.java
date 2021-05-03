@@ -11,9 +11,8 @@ public class Main {
 
         while(si_vuole_giocare){
 
-            //fasi.primaFase();
-            //fasi.secondaFase();
-            //fasi.terzaFase();
+            Battaglia btg= new Battaglia();
+            btg.combattimento();
 
             if (InputDati.yesOrNo(cst.ulteriorePartita()))
                 si_vuole_giocare= InputDati.yesOrNo(cst.nuovaPartita());
