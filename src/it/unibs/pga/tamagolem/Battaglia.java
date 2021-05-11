@@ -15,8 +15,9 @@ public class Battaglia {
     public void faseI (){
 
         int num_elementi= InputDati.leggiIntero("Quanti elementi vuoi usare?", 3, 10);
+        CostantiNumeriche cs = new CostantiNumeriche(num_elementi);
 
-        for (int i= 0; i< num_elementi; i++){
+        for (int i= 0; i< cs.N; i++){
             //crea equilibrio
                 //crea interazioni in una matrice
                 //crea pietre
