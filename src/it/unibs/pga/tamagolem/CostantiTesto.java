@@ -4,20 +4,20 @@ import java.util.Random;
 
 public class CostantiTesto {
 
-    public static final String ERRORE= "Qualcosa non ha funzionato nella stampa delle stringhe, vai a controllare";
+    private static final String ERRORE= "Qualcosa non ha funzionato nella stampa delle stringhe, vai a controllare";
 
 
-    public static final String INIZIO_PARTITA_1= "Allievi dell'Accademia, volete iniziare una partita?";
-    public static final String INIZIO_PARTITA_2= "Siete pronti a combattere allievi?";
-    public static final String INIZIO_PARTITA_3= "Allievi, siete pronti a creare un nuovo Equilibrio del mondo?";
+    private static final String INIZIO_PARTITA_1= "Allievi dell'Accademia, volete iniziare una partita?";
+    private static final String INIZIO_PARTITA_2= "Siete pronti a combattere allievi?";
+    private static final String INIZIO_PARTITA_3= "Allievi, siete pronti a creare un nuovo Equilibrio del mondo?";
 
-    public static final String ULTERIORE_PARTITA_1 = "Volete fare un'altra partita?";
-    public static final String ULTERIORE_PARTITA_2 = "Volete combattere ancora?";
+    private static final String ULTERIORE_PARTITA_1 = "Volete fare un'altra partita?";
+    private static final String ULTERIORE_PARTITA_2 = "Volete combattere ancora?";
 
 
-    public static final String FINE_PARTITA_1= "L'allievo %s ha giocato con l'Equilibrio del Mondo e ne è uscito vincitore";
-    public static final String FINE_PARTITA_2= "%s sconfigge l'avversario umiliandolo nel profondo";
-    public static final String FINE_PARTITA_3= "Non importa se vinci di un centimetro o di un chilometro, l'importnte è vincere.\n%s è quindi IL vincitore";//sì e una cit a FF1
+    private static final String FINE_PARTITA_1= "L'allievo %s ha giocato con l'Equilibrio del Mondo e ne è uscito vincitore";
+    private static final String FINE_PARTITA_2= "%s sconfigge l'avversario umiliandolo nel profondo";
+    private static final String FINE_PARTITA_3= "Non importa se vinci di un centimetro o di un chilometro, l'importnte è vincere.\n%s è quindi IL vincitore";//sì e una cit a FF1
 
     public String nuovaPartita(){
 

@@ -17,8 +17,12 @@ public class Battaglia {
         int num_elementi= InputDati.leggiIntero("Quanti elementi vuoi usare?", 3, 10);
 
         for (int i= 0; i< num_elementi; i++){
-
+            //crea equilibrio
+                //crea interazioni in una matrice
+                //crea pietre
         }
+
+
 
     }
 

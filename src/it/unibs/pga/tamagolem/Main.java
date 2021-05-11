@@ -12,7 +12,7 @@ public class Main {
         while(si_vuole_giocare){
 
             Battaglia btg= new Battaglia();
-            btg.combattimento();
+            //btg.combattimento();
 
             if (InputDati.yesOrNo(cst.ulteriorePartita()))
                 si_vuole_giocare= InputDati.yesOrNo(cst.nuovaPartita());
