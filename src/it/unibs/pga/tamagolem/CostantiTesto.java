@@ -52,7 +52,7 @@ public class CostantiTesto {
     }
 
 
-    public String finePartita(){
+    public static String finePartita(){
 
         Random caso= new Random();
         int stringa_da_stampare= caso.nextInt(3);
