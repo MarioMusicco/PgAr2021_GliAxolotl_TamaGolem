@@ -1,14 +1,13 @@
 package it.unibs.pga.tamagolem;
 
-import java.util.ArrayDeque;
-import java.util.Deque;
+import java.util.ArrayList;
 
 public class TamaGolem {
 
     private int HPMAX= 10;
 
     private int HP;
-    private Deque<Pietra> pietre_degli_elementi= new ArrayDeque<>();
+    private ArrayList<Pietra> pietre_degli_elementi= new ArrayList<Pietra>();
 
     public TamaGolem() {
         this.HP = HPMAX;
@@ -22,7 +21,7 @@ public class TamaGolem {
         this.HP = HP;
     }
 
-    public Deque<Pietra> getPietre_degli_elementi() {
+    public ArrayList<Pietra> getPietre_degli_elementi() {
         return pietre_degli_elementi;
     }
 

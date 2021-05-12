@@ -3,11 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="13708b66-cfcc-4c47-8439-a0a74c92e284" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it/unibs/pga/tamagolem/Allievo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it/unibs/pga/tamagolem/Allievo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/it/unibs/pga/tamagolem/Battaglia.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it/unibs/pga/tamagolem/Battaglia.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it/unibs/pga/tamagolem/CostantiTesto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it/unibs/pga/tamagolem/CostantiTesto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it/unibs/pga/tamagolem/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it/unibs/pga/tamagolem/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it/unibs/pga/tamagolem/Pietra.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it/unibs/pga/tamagolem/Pietra.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it/unibs/pga/tamagolem/TamaGolem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it/unibs/pga/tamagolem/TamaGolem.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,7 +96,7 @@
       <workItem from="1620759555907" duration="597000" />
       <workItem from="1620807124212" duration="6829000" />
       <workItem from="1620824509527" duration="5548000" />
-      <workItem from="1620836311536" duration="4818000" />
+      <workItem from="1620836311536" duration="6830000" />
     </task>
     <servers />
   </component>

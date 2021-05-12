@@ -50,25 +50,52 @@ public class Battaglia {
         System.out.println("allevo2 provcedi all'evocazione");
         allievo2.evocazione();
 
+        int turno_pietra_1=0;
+        int golem_g1_attuale=0;
+        int turno_pietra_2=0;
+        int golem_g2_attuale=0;
+
         do{
             //scontro
-            Pietra ptg1= new Pietra(allievo1.getTamagolem().get(allievo1.getTamagolem().size()).getPietre_degli_elementi());
+            Pietra ptg1= allievo1.getTamagolem().get(golem_g1_attuale).getPietre_degli_elementi().get(turno_pietra_1);
+            Pietra ptg2= allievo2.getTamagolem().get(golem_g2_attuale).getPietre_degli_elementi().get(turno_pietra_2);
+
+            System.out.println("Il tamagolem di g1 ha -- HP rimanenti" +
+                    "Il tamagolem di g2 ha -- HP rimanenti");
+
+            int danno= ptg1.getDanni_elementi().get(ptg2.getNome());
+            int new_HP;
+
+            if (danno>=0){
+                new_HP= allievo1.getTamagolem().get(golem_g1_attuale).getHP() -danno;
+                allievo1.getTamagolem().get(golem_g1_attuale).setHP(new_HP);
+                System.out.println("Il tamagolem di g1 ha subito -- danni");
+            }else {
+                new_HP= allievo2.getTamagolem().get(golem_g2_attuale).getHP() +danno;
+                allievo2.getTamagolem().get(golem_g2_attuale).setHP(new_HP);
+                //System.out.println("Il tamagolem di g1 ha subito -- danni");
+            }
+
             //evocazioni successive
             //isVincitore= true
-            if(allievo1.getTamagolem().get(allievo1.getTamagolem().size()- 1).getHP()<=0) {
+            if(allievo1.getTamagolem().get(golem_g1_attuale).getHP()<=0) {
+                System.out.println("Il tamagolem di g1 è stato sconfitto");
                 if (allievo1.getTamagolem().size() == CostantiNumeriche.getG()) {
                     allievo2.setIs_vincitore(true);
                 }
                 else{
                     allievo1.evocazione();
+                    golem_g1_attuale++;
                 }
             }
 
-            if(allievo2.getTamagolem().get(allievo2.getTamagolem().size()- 1).getHP()<=0){
+            if(allievo2.getTamagolem().get(golem_g2_attuale).getHP()<=0){
+                //System.out.println("Il tamagolem di g1 è stato sconfitto");
                 if (allievo2.getTamagolem().size() == CostantiNumeriche.getG()) {
                     allievo1.setIs_vincitore(true);
                 }else{
                     allievo2.evocazione();
+                    golem_g2_attuale++;
                 }
             }
 
