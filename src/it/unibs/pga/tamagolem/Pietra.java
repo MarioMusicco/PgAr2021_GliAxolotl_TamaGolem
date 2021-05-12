@@ -8,8 +8,9 @@ public class Pietra {
     private String nome;
     private Map<String, Integer> danni_elementi = new HashMap<>();
 
-    public Pietra(String nome) {
+    public Pietra(String nome, int[] potenza) {
         this.nome = nome;
+       creaDanno(potenza);
     }
 
     public String getNome() {
@@ -20,7 +21,11 @@ public class Pietra {
         this.nome = nome;
     }
 
-    public void creaDanno(String elemento, int potenza){
-        danni_elementi.put(elemento, potenza);
+    public void creaDanno(int[] potenza){
+
+        for (int i=0; i< CostantiNumeriche.getN(); i++){
+            String elemento= String.valueOf(Elementi.values()[i]);
+            danni_elementi.put(elemento, potenza[i]);
+        }
     }
 }

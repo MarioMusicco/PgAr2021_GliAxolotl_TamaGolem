@@ -6,7 +6,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        CostantiTesto cst= new CostantiTesto();
+       CostantiTesto cst= new CostantiTesto();
         boolean si_vuole_giocare= InputDati.yesOrNo(cst.nuovaPartita());
 
         while(si_vuole_giocare){
@@ -20,6 +20,7 @@ public class Main {
             else
                 si_vuole_giocare=false;
         }
+
 
     }
 }

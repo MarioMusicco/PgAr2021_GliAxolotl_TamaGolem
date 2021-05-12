@@ -5,13 +5,13 @@ import java.util.ArrayList;
 public class Allievo {
 
     private String nome;
-    private ArrayList<TamaGolem> tamagolem;
-    //private ArrayList<> scortaPietre;
+    private ArrayList<TamaGolem> tamagolem= new ArrayList<TamaGolem>();
+    private ArrayList<Equilibrio> scortaPietre= new ArrayList<Equilibrio>();
     private boolean is_vincitore;
 
-    public Allievo(String nome){
+    public Allievo(String nome, Equilibrio pacchetto_pietre){
         this.nome= nome;
-        creaScortaPietre();
+        creaScortaPietre(pacchetto_pietre);
         is_vincitore= false;
     }
 
@@ -31,13 +31,17 @@ public class Allievo {
         this.is_vincitore = is_vincitore;
     }
 
-    private void creaScortaPietre() {
-
+    private void creaScortaPietre(Equilibrio pacchetto_pietre) {
+        for (int i=0; i<CostantiNumeriche.getP()/CostantiNumeriche.getS(); i++){
+            scortaPietre.add(pacchetto_pietre);
+        }
     }
 
-    private void creaTamaGolem(){
+    private void evocazione(){
         TamaGolem golem = new TamaGolem();
-        for (int i=0; i< CostantiNumeriche.getP(); i++)
+        for (int i=0; i< CostantiNumeriche.getP(); i++){
+
+        }
         tamagolem.add(golem);
     }
 
