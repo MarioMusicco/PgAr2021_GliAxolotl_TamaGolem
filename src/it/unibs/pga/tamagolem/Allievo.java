@@ -7,12 +7,10 @@ public class Allievo {
 
     private String nome;
     private ArrayList<TamaGolem> tamagolem = new ArrayList<TamaGolem>();
-    private ArrayList<Pietra> scortaPietre = new ArrayList<Pietra>();
     private boolean is_vincitore;
 
-    public Allievo(String nome, Equilibrio pacchetto_pietre) {
+    public Allievo(String nome) {
         this.nome = nome;
-        creaScortaPietre(pacchetto_pietre);
         is_vincitore = false;
     }
 
@@ -40,15 +38,8 @@ public class Allievo {
         this.tamagolem = tamagolem;
     }
 
-    private void creaScortaPietre(Equilibrio pacchetto_pietre) {
-        for (int i = 0; i < CostantiNumeriche.getN(); i++) {
-            for (int j = 0; j < CostantiNumeriche.getS() / CostantiNumeriche.getN(); j++) {
-                scortaPietre.add(pacchetto_pietre.getEquilibrio_del_mondo().get(i));
-            }
-        }
-    }
 
-    public void evocazione() {
+    public void evocazione(ArrayList<Pietra> scortaPietre) {
 
         TamaGolem golem = new TamaGolem();
 

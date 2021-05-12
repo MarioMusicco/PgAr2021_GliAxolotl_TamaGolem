@@ -2,6 +2,7 @@ package it.unibs.pga.tamagolem;
 
 import it.unibs.fp.mylib.InputDati;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 public class Battaglia {
@@ -10,10 +11,10 @@ public class Battaglia {
 
         Equilibrio pacchetto_pietre= faseI();
 
-       Allievo allievo1= creaAllievo(pacchetto_pietre);
-        Allievo allievo2= creaAllievo(pacchetto_pietre);
+        Allievo allievo1= creaAllievo();
+        Allievo allievo2= creaAllievo();
 
-        faseII(allievo1, allievo2);
+        faseII(allievo1, allievo2, pacchetto_pietre);
         faseIII(allievo1, allievo2, pacchetto_pietre);
 
     }
@@ -32,7 +33,7 @@ public class Battaglia {
                 //crea pietre
             for (int j=0; j< CostantiNumeriche.getN(); j++){
 
-                matrice[i][j]= rn.nextInt(10);
+                matrice[i][j]= InputDati.leggiIntero("");
 
 
             }
@@ -42,13 +43,21 @@ public class Battaglia {
         return eq;
     }
 
-    public void faseII(Allievo allievo1, Allievo allievo2){
+    public void faseII(Allievo allievo1, Allievo allievo2, Equilibrio pacchetto_pietre){
+
+        ArrayList<Pietra> scortaPietre = new ArrayList<Pietra>();
+        for (int i = 0; i < CostantiNumeriche.getN(); i++) {
+            for (int j = 0; j < CostantiNumeriche.getS() / CostantiNumeriche.getN(); j++) {
+                scortaPietre.add(pacchetto_pietre.getEquilibrio_del_mondo().get(i));
+            }
+        }
+
         //evocazione iniziale
         System.out.println("allievo1 procedi all'evocazione");
-        allievo1.evocazione();
+        allievo1.evocazione(scortaPietre);
 
         System.out.println("allevo2 provcedi all'evocazione");
-        allievo2.evocazione();
+        allievo2.evocazione(scortaPietre);
 
         int turno_pietra_1=0;
         int golem_g1_attuale=0;
@@ -73,7 +82,7 @@ public class Battaglia {
             }else {
                 new_HP= allievo2.getTamagolem().get(golem_g2_attuale).getHP() +danno;
                 allievo2.getTamagolem().get(golem_g2_attuale).setHP(new_HP);
-                //System.out.println("Il tamagolem di g1 ha subito -- danni");
+                System.out.println("Il tamagolem di g2 ha subito -- danni");
             }
 
             //evocazioni successive
@@ -84,17 +93,17 @@ public class Battaglia {
                     allievo2.setIs_vincitore(true);
                 }
                 else{
-                    allievo1.evocazione();
+                    allievo1.evocazione(scortaPietre);
                     golem_g1_attuale++;
                 }
             }
 
             if(allievo2.getTamagolem().get(golem_g2_attuale).getHP()<=0){
-                //System.out.println("Il tamagolem di g1 è stato sconfitto");
+                System.out.println("Il tamagolem di g2 è stato sconfitto");
                 if (allievo2.getTamagolem().size() == CostantiNumeriche.getG()) {
                     allievo1.setIs_vincitore(true);
                 }else{
-                    allievo2.evocazione();
+                    allievo2.evocazione(scortaPietre);
                     golem_g2_attuale++;
                 }
             }
@@ -130,9 +139,9 @@ public class Battaglia {
     }
 
 
-    private Allievo creaAllievo(Equilibrio pacchetto_pietre){
+    private Allievo creaAllievo(){
         String nome= InputDati.leggiStringaNonVuota("nome allievo");
-        Allievo allievo= new Allievo(nome, pacchetto_pietre);
+        Allievo allievo= new Allievo(nome);
 
         return allievo;
     }

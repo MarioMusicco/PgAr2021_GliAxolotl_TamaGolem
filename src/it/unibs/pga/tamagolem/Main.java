@@ -22,5 +22,8 @@ public class Main {
         }
 
 
+        /*double n=3;
+        double m= (n+1)/3;
+        System.out.println((m));*/
     }
 }
