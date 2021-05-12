@@ -30,8 +30,37 @@ public class Battaglia {
 
     public void faseII(Allievo allievo1, Allievo allievo2){
         //evocazione iniziale
+        System.out.println("allievo1 procedi all'evocazione");
+        allievo1.evocazione();
+
+        System.out.println("allevo2 provcedi all'evocazione");
+        allievo2.evocazione();
 
         do{
+            //scontro
+
+
+
+
+            //evocazioni successive
+            //isVincitore= true
+            if(allievo1.getTamagolem().get(allievo1.getTamagolem().size()- 1).getHP()<=0) {
+                if (allievo1.getTamagolem().size() == CostantiNumeriche.getG()) {
+                    allievo2.setIs_vincitore(true);
+                }
+                else{
+                    allievo1.evocazione();
+                }
+            }
+
+            if(allievo2.getTamagolem().get(allievo2.getTamagolem().size()- 1).getHP()<=0){
+                if (allievo2.getTamagolem().size() == CostantiNumeriche.getG()) {
+                    allievo1.setIs_vincitore(true);
+                }else{
+                    allievo2.evocazione();
+                }
+            }
+
 
         }while(!allievo1.isIs_vincitore() && !allievo2.isIs_vincitore());
     }
@@ -46,6 +75,7 @@ public class Battaglia {
 
         //rivelazione equilibrio
     }
+
 
     private Allievo creaAllievo(Equilibrio pacchetto_pietre){
         String nome= InputDati.leggiStringaNonVuota("nome allievo");

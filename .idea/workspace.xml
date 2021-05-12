@@ -2,12 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="13708b66-cfcc-4c47-8439-a0a74c92e284" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/it/unibs/pga/tamagolem/Equilibrio.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/it/unibs/pga/tamagolem/Allievo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it/unibs/pga/tamagolem/Allievo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/it/unibs/pga/tamagolem/Battaglia.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it/unibs/pga/tamagolem/Battaglia.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it/unibs/pga/tamagolem/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it/unibs/pga/tamagolem/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it/unibs/pga/tamagolem/Pietra.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it/unibs/pga/tamagolem/Pietra.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it/unibs/pga/tamagolem/Equilibrio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it/unibs/pga/tamagolem/Equilibrio.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it/unibs/pga/tamagolem/TamaGolem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it/unibs/pga/tamagolem/TamaGolem.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,17 +74,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
@@ -108,7 +96,8 @@
       <workItem from="1620209215978" duration="100000" />
       <workItem from="1620716626182" duration="7796000" />
       <workItem from="1620759555907" duration="597000" />
-      <workItem from="1620807124212" duration="4698000" />
+      <workItem from="1620807124212" duration="6829000" />
+      <workItem from="1620824509527" duration="5270000" />
     </task>
     <servers />
   </component>

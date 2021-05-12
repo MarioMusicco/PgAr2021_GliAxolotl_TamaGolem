@@ -10,6 +10,10 @@ public class Equilibrio {
         addPietra(potenza);
     }
 
+    public ArrayList<Pietra> getEquilibrio_del_mondo() {
+        return equilibrio_del_mondo;
+    }
+
     public void addPietra (int potenza [][]){
 
         for (int i=0; i<CostantiNumeriche.getN(); i++){
