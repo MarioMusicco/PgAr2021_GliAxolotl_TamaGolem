@@ -39,7 +39,7 @@ public class CostantiTesto {
     public String ulteriorePartita(){
 
         Random caso= new Random();
-        int stringa_da_stampare= caso.nextInt(3);
+        int stringa_da_stampare= caso.nextInt(2);
 
         switch (stringa_da_stampare){
             case 0:

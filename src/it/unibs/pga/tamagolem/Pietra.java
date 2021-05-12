@@ -17,8 +17,8 @@ public class Pietra {
         return nome;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public Map<String, Integer> getDanni_elementi() {
+        return danni_elementi;
     }
 
     public void creaDanno(int[] potenza){
