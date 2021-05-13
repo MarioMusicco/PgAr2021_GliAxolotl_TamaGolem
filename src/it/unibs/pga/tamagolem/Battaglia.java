@@ -25,22 +25,48 @@ public class Battaglia {
         new CostantiNumeriche(num_elementi);
 
         int[][] matrice= new int[num_elementi][num_elementi];
-        Random rn = new Random ();
 
+        //crea equilibrio
         for (int i= 0; i< CostantiNumeriche.getN(); i++){
-            //crea equilibrio
-                //crea interazioni in una matrice
-                //crea pietre
             for (int j=0; j< CostantiNumeriche.getN(); j++){
 
-                matrice[i][j]= InputDati.leggiIntero("");
+                if(i==j) {
+                    matrice[i][j] = 0;
 
+                }else if(j== CostantiNumeriche.getN()-1){
 
+                    int inteazione_totale=0;
+                    for (int k=0; k<j; k++){
+                        inteazione_totale+= matrice[i][k];
+                    }
+                    matrice[i][j]= -inteazione_totale;
+
+                }else{
+
+                    boolean valido= false;
+                    do {
+
+                        //creo un'interazione tra un elemento e un altro
+                        matrice[i][j] = creaInterazione();
+                        //creo l'opposto di quella interazione(l'altro con l'uno)
+                        matrice[j][i] = -matrice[i][j];
+
+                        int inteazione_parziale;
+                        for (int k=0; k<=j; k++){
+                            inteazione_parziale+= matrice[i][k];
+                        }
+                        if(inteazione_parziale< /*questa condizione fa girare tutto il programma*/){
+                            valido= true;
+                        }
+
+                    }while (!valido);
+                }
             }
         }
 
-        Equilibrio eq= new Equilibrio(matrice);
-        return eq;
+
+        Equilibrio equilibrio= new Equilibrio(matrice);
+        return equilibrio;
     }
 
     public void faseII(Allievo allievo1, Allievo allievo2, Equilibrio pacchetto_pietre){
@@ -140,11 +166,26 @@ public class Battaglia {
 
     }
 
-
     private Allievo creaAllievo(){
         String nome= InputDati.leggiStringaNonVuota("nome allievo");
         Allievo allievo= new Allievo(nome);
 
         return allievo;
+    }
+
+    private int creaInterazione(){
+
+        int interazione;
+        boolean segno;
+        Random rn = new Random ();
+
+        interazione= rn.nextInt(CostantiNumeriche.HPMAX)+1;
+
+        segno= rn.nextBoolean();
+        if(!segno){
+            interazione= -interazione;
+        }
+
+        return interazione;
     }
 }

@@ -2,15 +2,14 @@ package it.unibs.pga.tamagolem;
 
 import java.util.ArrayList;
 
-public class TamaGolem {
 
-    private int HPMAX= 10;
+public class TamaGolem {
 
     private int HP;
     private ArrayList<Pietra> pietre_degli_elementi= new ArrayList<Pietra>();
 
     public TamaGolem() {
-        this.HP = HPMAX;
+        this.HP = CostantiNumeriche.HPMAX;
     }
 
     public int getHP() {

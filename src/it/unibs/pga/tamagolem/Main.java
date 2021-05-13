@@ -21,9 +21,5 @@ public class Main {
                 si_vuole_giocare=false;
         }
 
-
-        /*double n=3;
-        double m= (n+1)/3;
-        System.out.println((m));*/
     }
 }

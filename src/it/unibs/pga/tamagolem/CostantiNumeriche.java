@@ -2,6 +2,8 @@ package it.unibs.pga.tamagolem;
 
 public class CostantiNumeriche {
 
+    public static final int HPMAX= 10;
+
     private static int N;
     private static int P;
     private static int G;
