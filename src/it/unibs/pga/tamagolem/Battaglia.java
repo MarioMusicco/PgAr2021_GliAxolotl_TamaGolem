@@ -9,10 +9,11 @@ public class Battaglia {
 
     public void combattimento(){
 
-        Equilibrio pacchetto_pietre= faseI();
-
         String primo_nome= InputDati.leggiStringa("nome allievo");
         String secondo_nome= InputDati.leggiStringa("nome allievo");
+
+        Equilibrio pacchetto_pietre= faseI();
+
         Allievo allievo1;
         Allievo allievo2;
         if(System.currentTimeMillis()%2==0){
