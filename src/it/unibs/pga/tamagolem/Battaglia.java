@@ -202,7 +202,6 @@ public class Battaglia {
 
         //rivelazione equilibrio
         for (int i=0; i<= CostantiNumeriche.getN(); i++){
-            int somma=0;
             for (int j=0; j<= CostantiNumeriche.getN(); j++){
                 if (i==0 && j==0) {
                     //System.out.print("---------");
@@ -212,10 +211,8 @@ public class Battaglia {
                     //System.out.print(pacchetto_di_pietre.getEquilibrio_del_mondo().get(i-1).getNome() + " ");
                 }else{
                     System.out.print(pacchetto_di_pietre.getEquilibrio_del_mondo().get(i-1).getDanni_elementi().get(String.valueOf(Elementi.values()[j-1]))+ " ");
-                    somma+=pacchetto_di_pietre.getEquilibrio_del_mondo().get(i-1).getDanni_elementi().get(String.valueOf(Elementi.values()[j-1]));
-                }
+                  }
             }
-            System.out.println("          "+ somma);
         }
 
     }
