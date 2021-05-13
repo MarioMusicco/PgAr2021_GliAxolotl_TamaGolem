@@ -35,11 +35,11 @@ public class Battaglia {
 
                 }else if(j== CostantiNumeriche.getN()-1){
 
-                    int inteazione_totale=0;
+                    int interazione_totale=0;
                     for (int k=0; k<j; k++){
-                        inteazione_totale+= matrice[i][k];
+                        interazione_totale+= matrice[i][k];
                     }
-                    matrice[i][j]= -inteazione_totale;
+                    matrice[i][j]= -interazione_totale;
 
                 }else{
 
@@ -51,11 +51,13 @@ public class Battaglia {
                         //creo l'opposto di quella interazione(l'altro con l'uno)
                         matrice[j][i] = -matrice[i][j];
 
-                        int inteazione_parziale;
-                        for (int k=0; k<=j; k++){
-                            inteazione_parziale+= matrice[i][k];
+                        int interazione_parziale=0;
+                        for (int k = 0; k <= j; k++) {
+                            interazione_parziale += matrice[i][k];
                         }
-                        if(inteazione_parziale< /*questa condizione fa girare tutto il programma*/){
+                        if(j== CostantiNumeriche.getN()-2 && interazione_parziale==0){
+
+                        }else if(Math.abs(interazione_parziale)< CostantiNumeriche.HPMAX*(CostantiNumeriche.getN()-1 -j)/*questa condizione fa girare tutto il programma*/){
                             valido= true;
                         }
 
@@ -187,5 +189,12 @@ public class Battaglia {
         }
 
         return interazione;
+    }
+
+    private boolean controlloPenultimo(int pos, int interazione){
+        if (pos== CostantiNumeriche.getN()-2 && interazione==0){
+            return false;
+        }
+        return true;
     }
 }
