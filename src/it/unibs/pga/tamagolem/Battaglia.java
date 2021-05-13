@@ -28,7 +28,7 @@ public class Battaglia {
 
         //crea equilibrio
         for (int i= 0; i< CostantiNumeriche.getN(); i++){
-            for (int j=0; j< CostantiNumeriche.getN(); j++){
+            for (int j=i; j< CostantiNumeriche.getN(); j++){
 
                 if(i==j) {
                     matrice[i][j] = 0;
