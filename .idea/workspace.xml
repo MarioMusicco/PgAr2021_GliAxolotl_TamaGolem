@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="13708b66-cfcc-4c47-8439-a0a74c92e284" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TamaGolem/it/unibs/pga/tamagolem/Battaglia.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TamaGolem/it/unibs/pga/tamagolem/Battaglia.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TamaGolem/it/unibs/pga/tamagolem/CostantiNumeriche.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TamaGolem/it/unibs/pga/tamagolem/CostantiNumeriche.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TamaGolem/it/unibs/pga/tamagolem/TamaGolem.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TamaGolem/it/unibs/pga/tamagolem/TamaGolem.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/it/unibs/pga/tamagolem/Battaglia.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it/unibs/pga/tamagolem/Battaglia.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it/unibs/pga/tamagolem/CostantiNumeriche.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it/unibs/pga/tamagolem/CostantiNumeriche.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,7 +107,7 @@
       <workItem from="1620824509527" duration="5548000" />
       <workItem from="1620836311536" duration="8628000" />
       <workItem from="1620849071763" duration="4378000" />
-      <workItem from="1620892939550" duration="11389000" />
+      <workItem from="1620892939550" duration="12886000" />
     </task>
     <servers />
   </component>
@@ -130,16 +125,5 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/it/unibs/pga/tamagolem/Battaglia.java</url>
-          <line>78</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

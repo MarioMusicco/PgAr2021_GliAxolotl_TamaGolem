@@ -11,15 +11,26 @@ public class Battaglia {
 
         Equilibrio pacchetto_pietre= faseI();
 
-        /*Allievo allievo1= creaAllievo();
-        Allievo allievo2= creaAllievo();
+        String primo_nome= InputDati.leggiStringa("nome allievo");
+        String secondo_nome= InputDati.leggiStringa("nome allievo");
+        Allievo allievo1;
+        Allievo allievo2;
+        if(System.currentTimeMillis()%2==0){
+            allievo1= new Allievo(primo_nome);
+            allievo2= new Allievo(secondo_nome);
+            System.out.println("Inizierà i turni il giocatore " + allievo1.getNome());
+        }else{
+            allievo1= new Allievo(secondo_nome);
+            allievo2= new Allievo(primo_nome);
+            System.out.println("Inizierà i turni il giocatore " + allievo1.getNome());
+        }
 
-        faseII(allievo1, allievo2, pacchetto_pietre);*/
-        faseIII(/*allievo1, allievo2,*/ pacchetto_pietre);
+        faseII(allievo1, allievo2, pacchetto_pietre);
+        faseIII(allievo1, allievo2, pacchetto_pietre);
 
     }
 
-    public Equilibrio faseI (){
+    private Equilibrio faseI (){
 
         int num_elementi= InputDati.leggiIntero("Quanti elementi vuoi usare?", 3, 10);
         new CostantiNumeriche(num_elementi);
@@ -92,7 +103,7 @@ public class Battaglia {
         return equilibrio;
     }
 
-    public void faseII(Allievo allievo1, Allievo allievo2, Equilibrio pacchetto_pietre){
+    private void faseII(Allievo allievo1, Allievo allievo2, Equilibrio pacchetto_pietre){
 
         ArrayList<Pietra> scortaPietre = new ArrayList<Pietra>();
         for (int i = 0; i < CostantiNumeriche.getN(); i++) {
@@ -163,13 +174,13 @@ public class Battaglia {
         }while(!allievo1.isIs_vincitore() && !allievo2.isIs_vincitore());
     }
 
-    public void faseIII(/*Allievo allievo1, Allievo allievo2, */Equilibrio pacchetto_di_pietre){
+    private void faseIII(Allievo allievo1, Allievo allievo2, Equilibrio pacchetto_di_pietre){
 
-        /*if (allievo1.isIs_vincitore()){
+        if (allievo1.isIs_vincitore()){
             System.out.println(String.format(CostantiTesto.finePartita(), allievo1.getNome()));
         }else{
             System.out.println(String.format(CostantiTesto.finePartita(), allievo2.getNome()));
-        }*/
+        }
 
         //rivelazione equilibrio
         for (int i=0; i<= CostantiNumeriche.getN(); i++){
@@ -189,13 +200,6 @@ public class Battaglia {
             System.out.println("          "+ somma);
         }
 
-    }
-
-    private Allievo creaAllievo(){
-        String nome= InputDati.leggiStringaNonVuota("nome allievo");
-        Allievo allievo= new Allievo(nome);
-
-        return allievo;
     }
 
     private int creaInterazione(){
