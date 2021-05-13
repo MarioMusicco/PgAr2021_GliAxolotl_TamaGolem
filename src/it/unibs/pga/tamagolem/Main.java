@@ -15,10 +15,12 @@ public class Main {
             btg.combattimento();
 
 
-            if (InputDati.yesOrNo(cst.ulteriorePartita()))
-                si_vuole_giocare= InputDati.yesOrNo(cst.nuovaPartita());
-            else
+            if (InputDati.yesOrNo(cst.ulteriorePartita())) {
+                GestioneSchermo.ClearConsole();
+                si_vuole_giocare = InputDati.yesOrNo(cst.nuovaPartita());
+            }else{
                 si_vuole_giocare=false;
+            }
         }
         System.out.println("Grazie per aver giocato. ");
     }

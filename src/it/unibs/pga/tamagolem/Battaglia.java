@@ -32,7 +32,8 @@ public class Battaglia {
     }
 
     private Equilibrio faseI (){
-//domanda
+
+        //domanda
         int num_elementi= InputDati.leggiIntero("Quanti elementi volete inserire?", 3, 10);
         new CostantiNumeriche(num_elementi);
 
@@ -114,14 +115,18 @@ public class Battaglia {
         }
 
         //evocazione iniziale
-        InterazioneUtente.pausa2sec();
-        InterazioneUtente.ClearConsole();
-        InterazioneUtente.pausa();
+
         System.out.println(allievo1.getNome() + " procedi all'evocazione");
         allievo1.evocazione(scortaPietre);
 
-        System.out.println( allievo1.getNome() + " procedi all'evocazione");
+        GestioneSchermo.ClearConsole();
+        GestioneSchermo.pausa();
+
+        System.out.println( allievo2.getNome() + " procedi all'evocazione");
         allievo2.evocazione(scortaPietre);
+
+        GestioneSchermo.ClearConsole();
+        GestioneSchermo.pausa();
 
         int turno_pietra_1=0;
         int golem_g1_attuale=0;
@@ -133,8 +138,6 @@ public class Battaglia {
             Pietra ptg1= allievo1.getTamagolem().get(golem_g1_attuale).getPietre_degli_elementi().get(turno_pietra_1);
             Pietra ptg2= allievo2.getTamagolem().get(golem_g2_attuale).getPietre_degli_elementi().get(turno_pietra_2);
 
-            System.out.println("Il tamagolem di g1 ha -- HP rimanenti" +
-                    "Il tamagolem di g2 ha -- HP rimanenti");
 
             int danno= ptg1.getDanni_elementi().get(ptg2.getNome());
             int new_HP;
@@ -159,8 +162,11 @@ public class Battaglia {
                     allievo2.setIs_vincitore(true);
                 }
                 else{
+                    GestioneSchermo.pausa();
+                    System.out.println("");
                     allievo1.evocazione(scortaPietre);
                     golem_g1_attuale++;
+                    turno_pietra_1=0;
                 }
             }
 
@@ -169,11 +175,19 @@ public class Battaglia {
                 if (allievo2.getTamagolem().size() == CostantiNumeriche.getG()) {
                     allievo1.setIs_vincitore(true);
                 }else{
+                    GestioneSchermo.pausa();
+                    System.out.println("");
                     allievo2.evocazione(scortaPietre);
                     golem_g2_attuale++;
+                    turno_pietra_2=0;
                 }
             }
 
+            turno_pietra_1= (turno_pietra_1 +1)%CostantiNumeriche.getP();
+            turno_pietra_2= (turno_pietra_2 +1)%CostantiNumeriche.getP();
+
+            //GestioneSchermo.pausa();
+            GestioneSchermo.pausa2sec();
 
         }while(!allievo1.isIs_vincitore() && !allievo2.isIs_vincitore());
     }

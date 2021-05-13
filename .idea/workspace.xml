@@ -2,11 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="13708b66-cfcc-4c47-8439-a0a74c92e284" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/it/unibs/pga/tamagolem/InterazioneUtente.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/TamaGolem/it/unibs/pga/tamagolem/Battaglia.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TamaGolem/it/unibs/pga/tamagolem/Battaglia.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TamaGolem/it/unibs/pga/tamagolem/GestioneSchermo.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TamaGolem/it/unibs/pga/tamagolem/GestioneSchermo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TamaGolem/it/unibs/pga/tamagolem/InterazioneUtente.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/TamaGolem/it/unibs/pga/tamagolem/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TamaGolem/it/unibs/pga/tamagolem/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it/unibs/pga/tamagolem/Allievo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it/unibs/pga/tamagolem/Allievo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/it/unibs/pga/tamagolem/Battaglia.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it/unibs/pga/tamagolem/Battaglia.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it/unibs/pga/tamagolem/GestioneSchermo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it/unibs/pga/tamagolem/GestioneSchermo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it/unibs/pga/tamagolem/InterazioneUtente.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/it/unibs/pga/tamagolem/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it/unibs/pga/tamagolem/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -78,15 +83,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -119,6 +122,7 @@
       <workItem from="1620849071763" duration="4378000" />
       <workItem from="1620892939550" duration="14875000" />
       <workItem from="1620919456041" duration="4803000" />
+      <workItem from="1620931776715" duration="3910000" />
     </task>
     <servers />
   </component>
@@ -136,5 +140,16 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/it/unibs/pga/tamagolem/Allievo.java</url>
+          <line>70</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

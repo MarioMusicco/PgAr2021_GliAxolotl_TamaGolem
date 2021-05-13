@@ -1,29 +1,21 @@
 package it.unibs.pga.tamagolem;
 
 public class GestioneSchermo {
-
-    /**
-     * metodo usato per "pulire" lo schermo,
-     * così che un giocatore non spii l'altro
-     *
-     * Non è il metodo più corretto tra tutti,
-     * ma è stato approvato da un paio di insegnanti
-     */
-    public static void clearScreen(){
-
-        for (int i=0; i<1000; i++){
-            System.out.println("\n");
+    public static void ClearConsole(){
+        for(int clear = 0; clear < 500; clear++)
+        {
+            System.out.println("\b") ;
         }
     }
-
-    /**
-     * metodo che chiede all'utente di premere invio
-     * quando pronto a proseguire
-     */
-    public static void screenPausa(){
-
-        //Daniele
+    public static void pausa(){
+        System.out.println("Premi invio per continuare...");
+        new java.util.Scanner(System.in).nextLine();
     }
-
-
+    public static void pausa2sec() {
+        try {
+            java.util.concurrent.TimeUnit.SECONDS.sleep(2);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
 }

@@ -72,6 +72,7 @@ public class Allievo {
                         golem.daiPietre(scortaPietre.get(j));
                         scortaPietre.remove(scortaPietre.get(j));
                         pietra_valida = true;
+                        j--;
                         break;
                     }
                 }
