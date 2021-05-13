@@ -30,11 +30,15 @@ public class Battaglia {
         for (int i= 0; i< CostantiNumeriche.getN(); i++){
             for (int j=i; j< CostantiNumeriche.getN(); j++){
 
+                long inizio_tempo= System.currentTimeMillis();
+                long fine_tempo= inizio_tempo+ 1000;
+
                 if(i==j) {
                     matrice[i][j] = 0;
 
-                }else if(j== CostantiNumeriche.getN()-1){
+                }else if(j== CostantiNumeriche.getN()-1 ){
 
+                    //penultima riga, terzultima colonna
                     int interazione_totale=0;
                     for (int k=0; k<j; k++){
                         interazione_totale+= matrice[i][k];
@@ -52,14 +56,30 @@ public class Battaglia {
                         //creo l'opposto di quella interazione(l'altro con l'uno)
                         matrice[j][i] = -matrice[i][j];
 
-                        int interazione_parziale=0;
+                        int interazione_parziale_oriz=0;
+                        int interazione_parziale_vert=0;
                         for (int k = 0; k <= j; k++) {
-                            interazione_parziale += matrice[i][k];
+                            interazione_parziale_oriz += matrice[i][k];
                         }
-                        if(controlloValidoPenultimo(j, interazione_parziale)){
-                            if(Math.abs(interazione_parziale)< CostantiNumeriche.HPMAX*(CostantiNumeriche.getN()-1 -j)/*questa condizione fa girare tutto il programma*/) {
+                        for (int h=0; h<=i; h++){
+                            interazione_parziale_vert+= matrice[h][j];
+                        }
+
+                        if(controlloValidoPenultimo(j, interazione_parziale_oriz)){
+                            if(Math.abs(interazione_parziale_oriz)< CostantiNumeriche.HPMAX*(CostantiNumeriche.getN()-1 -j)) {
                                 valido = true;
+                                if(i== CostantiNumeriche.getN()-3 && j== CostantiNumeriche.getN()-2 ){
+                                    if(Math.abs(interazione_parziale_vert)>CostantiNumeriche.HPMAX || Math.abs(interazione_parziale_vert)== 0){
+                                        valido = false;
+                                    }
+                                }
                             }
+                        }
+
+                        if(System.currentTimeMillis()> fine_tempo){
+                            i=0;
+                            j=-1;
+                            break;
                         }
 
                     }while (!valido);
@@ -153,18 +173,20 @@ public class Battaglia {
 
         //rivelazione equilibrio
         for (int i=0; i<= CostantiNumeriche.getN(); i++){
+            int somma=0;
             for (int j=0; j<= CostantiNumeriche.getN(); j++){
                 if (i==0 && j==0) {
-                    System.out.print("---------");
+                    //System.out.print("---------");
                 }else if (i==0){
-                    System.out.print(String.valueOf(Elementi.values()[j-1]));
+                    //System.out.print(String.valueOf(Elementi.values()[j-1]) + " ");
                 }else if(j==0){
-                    System.out.print(pacchetto_di_pietre.getEquilibrio_del_mondo().get(i-1).getNome());
+                    //System.out.print(pacchetto_di_pietre.getEquilibrio_del_mondo().get(i-1).getNome() + " ");
                 }else{
-                    System.out.print(pacchetto_di_pietre.getEquilibrio_del_mondo().get(i-1).getDanni_elementi().get(String.valueOf(Elementi.values()[j-1])));
+                    System.out.print(pacchetto_di_pietre.getEquilibrio_del_mondo().get(i-1).getDanni_elementi().get(String.valueOf(Elementi.values()[j-1]))+ " ");
+                    somma+=pacchetto_di_pietre.getEquilibrio_del_mondo().get(i-1).getDanni_elementi().get(String.valueOf(Elementi.values()[j-1]));
                 }
             }
-            System.out.println("");
+            System.out.println("          "+ somma);
         }
 
     }
@@ -199,4 +221,5 @@ public class Battaglia {
         }
         return true;
     }
+
 }
