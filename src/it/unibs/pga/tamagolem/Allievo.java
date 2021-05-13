@@ -46,7 +46,7 @@ public class Allievo {
         for (int i = 0; i < CostantiNumeriche.getP(); i++) {
 
             //stampa delle pietre disponibili
-            System.out.println("Hai disponibili:");
+            System.out.println("Il sacchetto di Pietre contiene:");
             int num_pietre = 0;
             int tipo_pietra = 0;
             int r;
@@ -56,7 +56,7 @@ public class Allievo {
                     num_pietre++;
                 } else {
                     num_pietre++;
-                    System.out.println(String.format("%d pietre di tipo %s.", num_pietre, scortaPietre.get(p).getNome(), tipo_pietra));
+                    System.out.println(String.format("- %d pietre di tipo %s", num_pietre, scortaPietre.get(p).getNome(), tipo_pietra));
                     tipo_pietra++;
                     num_pietre = 0;
                 }
