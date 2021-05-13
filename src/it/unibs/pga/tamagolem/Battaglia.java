@@ -9,8 +9,8 @@ public class Battaglia {
 
     public void combattimento(){
 
-        String primo_nome= InputDati.leggiStringa("nome allievo");
-        String secondo_nome= InputDati.leggiStringa("nome allievo");
+        String primo_nome= InputDati.leggiStringa("Allievo numero Uno iserisci il tuo nome: ");
+        String secondo_nome= InputDati.leggiStringa("Allievo numero Due iserisci il tuo nome:");
 
         Equilibrio pacchetto_pietre= faseI();
 
@@ -19,21 +19,21 @@ public class Battaglia {
         if(System.currentTimeMillis()%2==0){
             allievo1= new Allievo(primo_nome);
             allievo2= new Allievo(secondo_nome);
-            System.out.println("Inizierà i turni il giocatore " + allievo1.getNome());
+            //domanda
+            System.out.println("Inizierà il giocatore " + allievo1.getNome());
         }else{
             allievo1= new Allievo(secondo_nome);
             allievo2= new Allievo(primo_nome);
-            System.out.println("Inizierà i turni il giocatore " + allievo1.getNome());
+            System.out.println("Inizierà il giocatore " + allievo1.getNome());
         }
-
         faseII(allievo1, allievo2, pacchetto_pietre);
         faseIII(allievo1, allievo2, pacchetto_pietre);
 
     }
 
     private Equilibrio faseI (){
-
-        int num_elementi= InputDati.leggiIntero("Quanti elementi vuoi usare?", 3, 10);
+//domanda
+        int num_elementi= InputDati.leggiIntero("Quanti elementi volete inserire?", 3, 10);
         new CostantiNumeriche(num_elementi);
 
         int[][] matrice= new int[num_elementi][num_elementi];
@@ -114,10 +114,13 @@ public class Battaglia {
         }
 
         //evocazione iniziale
-        System.out.println("allievo1 procedi all'evocazione");
+        InterazioneUtente.pausa2sec();
+        InterazioneUtente.ClearConsole();
+        InterazioneUtente.pausa();
+        System.out.println(allievo1.getNome() + " procedi all'evocazione");
         allievo1.evocazione(scortaPietre);
 
-        System.out.println("allevo2 provcedi all'evocazione");
+        System.out.println( allievo1.getNome() + " procedi all'evocazione");
         allievo2.evocazione(scortaPietre);
 
         int turno_pietra_1=0;
@@ -139,11 +142,11 @@ public class Battaglia {
             if (danno>0){
                 new_HP= allievo1.getTamagolem().get(golem_g1_attuale).getHP() -danno;
                 allievo1.getTamagolem().get(golem_g1_attuale).setHP(new_HP);
-                System.out.println("Il tamagolem di g1 ha subito -- danni");
+                System.out.println("Il tamagolem di "+ allievo1.getNome() +" ha subito -- danni");
             }else if(danno<0){
                 new_HP= allievo2.getTamagolem().get(golem_g2_attuale).getHP() +danno;
                 allievo2.getTamagolem().get(golem_g2_attuale).setHP(new_HP);
-                System.out.println("Il tamagolem di g2 ha subito -- danni");
+                System.out.println("Il tamagolem di "+ allievo2.getNome() +" ha subito -- danni");
             }else{
                 System.out.println("Le pietre si annullano a vicenda, non c'è stato danno");
             }
@@ -151,7 +154,7 @@ public class Battaglia {
             //evocazioni successive
             //isVincitore= true
             if(allievo1.getTamagolem().get(golem_g1_attuale).getHP()<=0) {
-                System.out.println("Il tamagolem di g1 è stato sconfitto");
+                System.out.println("Il tamagolem di " + allievo1.getNome() + " è stato sconfitto");
                 if (allievo1.getTamagolem().size() == CostantiNumeriche.getG()) {
                     allievo2.setIs_vincitore(true);
                 }
@@ -162,7 +165,7 @@ public class Battaglia {
             }
 
             if(allievo2.getTamagolem().get(golem_g2_attuale).getHP()<=0){
-                System.out.println("Il tamagolem di g2 è stato sconfitto");
+                System.out.println("Il tamagolem di "+ allievo2.getNome() +" è stato sconfitto");
                 if (allievo2.getTamagolem().size() == CostantiNumeriche.getG()) {
                     allievo1.setIs_vincitore(true);
                 }else{

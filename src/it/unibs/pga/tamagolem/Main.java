@@ -20,6 +20,6 @@ public class Main {
             else
                 si_vuole_giocare=false;
         }
-
+        System.out.println("Grazie per aver giocato. ");
     }
 }
