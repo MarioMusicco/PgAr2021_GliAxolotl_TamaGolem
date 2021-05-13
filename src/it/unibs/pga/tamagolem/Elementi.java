@@ -2,13 +2,13 @@ package it.unibs.pga.tamagolem;
 
 public enum Elementi {
     Montagna,
-    Tuono,
-    Marea,
-    Lava,
     Tempesta,
-    Ombra,
+    Marea,
+    Incendio,
+    Tuono,
+    Etere,
     Metallo,
     Cristallo,
-    Nova,
-    Etere
+    Lava,
+    Nova
 }

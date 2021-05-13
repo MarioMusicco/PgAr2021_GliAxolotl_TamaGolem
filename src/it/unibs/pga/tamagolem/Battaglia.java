@@ -75,14 +75,16 @@ public class Battaglia {
             int danno= ptg1.getDanni_elementi().get(ptg2.getNome());
             int new_HP;
 
-            if (danno>=0){
+            if (danno>0){
                 new_HP= allievo1.getTamagolem().get(golem_g1_attuale).getHP() -danno;
                 allievo1.getTamagolem().get(golem_g1_attuale).setHP(new_HP);
                 System.out.println("Il tamagolem di g1 ha subito -- danni");
-            }else {
+            }else if(danno<0){
                 new_HP= allievo2.getTamagolem().get(golem_g2_attuale).getHP() +danno;
                 allievo2.getTamagolem().get(golem_g2_attuale).setHP(new_HP);
                 System.out.println("Il tamagolem di g2 ha subito -- danni");
+            }else{
+                System.out.println("Le pietre si annullano a vicenda, non c'è stato danno");
             }
 
             //evocazioni successive

@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="13708b66-cfcc-4c47-8439-a0a74c92e284" name="Default Changelist" comment="" />
+    <list default="true" id="13708b66-cfcc-4c47-8439-a0a74c92e284" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it/unibs/pga/tamagolem/Elementi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it/unibs/pga/tamagolem/Elementi.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -93,7 +96,8 @@
       <workItem from="1620807124212" duration="6829000" />
       <workItem from="1620824509527" duration="5548000" />
       <workItem from="1620836311536" duration="8628000" />
-      <workItem from="1620849071763" duration="4207000" />
+      <workItem from="1620849071763" duration="4378000" />
+      <workItem from="1620892939550" duration="208000" />
     </task>
     <servers />
   </component>
