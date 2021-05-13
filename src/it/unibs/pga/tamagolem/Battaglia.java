@@ -11,11 +11,11 @@ public class Battaglia {
 
         Equilibrio pacchetto_pietre= faseI();
 
-        Allievo allievo1= creaAllievo();
+        /*Allievo allievo1= creaAllievo();
         Allievo allievo2= creaAllievo();
 
-        faseII(allievo1, allievo2, pacchetto_pietre);
-        faseIII(allievo1, allievo2, pacchetto_pietre);
+        faseII(allievo1, allievo2, pacchetto_pietre);*/
+        faseIII(/*allievo1, allievo2,*/ pacchetto_pietre);
 
     }
 
@@ -40,6 +40,7 @@ public class Battaglia {
                         interazione_totale+= matrice[i][k];
                     }
                     matrice[i][j]= -interazione_totale;
+                    matrice[j][i]= interazione_totale;
 
                 }else{
 
@@ -55,10 +56,10 @@ public class Battaglia {
                         for (int k = 0; k <= j; k++) {
                             interazione_parziale += matrice[i][k];
                         }
-                        if(j== CostantiNumeriche.getN()-2 && interazione_parziale==0){
-
-                        }else if(Math.abs(interazione_parziale)< CostantiNumeriche.HPMAX*(CostantiNumeriche.getN()-1 -j)/*questa condizione fa girare tutto il programma*/){
-                            valido= true;
+                        if(controlloValidoPenultimo(j, interazione_parziale)){
+                            if(Math.abs(interazione_parziale)< CostantiNumeriche.HPMAX*(CostantiNumeriche.getN()-1 -j)/*questa condizione fa girare tutto il programma*/) {
+                                valido = true;
+                            }
                         }
 
                     }while (!valido);
@@ -142,13 +143,13 @@ public class Battaglia {
         }while(!allievo1.isIs_vincitore() && !allievo2.isIs_vincitore());
     }
 
-    public void faseIII(Allievo allievo1, Allievo allievo2, Equilibrio pacchetto_di_pietre){
+    public void faseIII(/*Allievo allievo1, Allievo allievo2, */Equilibrio pacchetto_di_pietre){
 
-        if (allievo1.isIs_vincitore()){
+        /*if (allievo1.isIs_vincitore()){
             System.out.println(String.format(CostantiTesto.finePartita(), allievo1.getNome()));
         }else{
             System.out.println(String.format(CostantiTesto.finePartita(), allievo2.getNome()));
-        }
+        }*/
 
         //rivelazione equilibrio
         for (int i=0; i<= CostantiNumeriche.getN(); i++){
@@ -191,7 +192,8 @@ public class Battaglia {
         return interazione;
     }
 
-    private boolean controlloPenultimo(int pos, int interazione){
+    private boolean controlloValidoPenultimo(int pos, int interazione){
+
         if (pos== CostantiNumeriche.getN()-2 && interazione==0){
             return false;
         }
