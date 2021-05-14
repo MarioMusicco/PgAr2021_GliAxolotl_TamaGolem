@@ -5,14 +5,14 @@ import java.util.Random;
 
 public class PacchettoPietre {
 
-    private ArrayList<Pietra> equilibrio_del_mondo= new ArrayList<Pietra>();
+    private ArrayList<Pietra> pietre_dell_equilibrio= new ArrayList<Pietra>();
 
     public PacchettoPietre() {
         addPietra();
     }
 
     public ArrayList<Pietra> getEquilibrio_del_mondo() {
-        return equilibrio_del_mondo;
+        return pietre_dell_equilibrio;
     }
 
     private void addPietra (){
@@ -21,7 +21,7 @@ public class PacchettoPietre {
 
         for (int i=0; i<CostantiNumeriche.getN(); i++){
             Pietra pt= new Pietra(String.valueOf(Elementi.values()[i]), potenza[i]);
-            equilibrio_del_mondo.add(pt);
+            pietre_dell_equilibrio.add(pt);
         }
     }
 

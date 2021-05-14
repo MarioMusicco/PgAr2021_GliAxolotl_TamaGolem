@@ -19,6 +19,17 @@ public class CostantiTesto {
     private static final String FINE_PARTITA_2= "%s sconfigge l'avversario umiliandolo nel profondo";
     private static final String FINE_PARTITA_3= "Non importa se vinci di un centimetro o di un chilometro, l'importnte è vincere.\n%s è quindi IL vincitore";//sì e una cit a FF1
 
+    public static final String NOME_PRIMO_ALLIEVO = "Allievo numero Uno inserisci il tuo nome: ";
+    public static final String NOME_SECONDO_ALLIEVO = "Allievo numero Due inserisci il tuo nome: ";
+    public static final String ANNUNCIO_GIOCATORE_1 = "Inizierà il giocatore ";
+    public static final String RICHIESTA_DIFFICOLTA = "Quanti elementi volete inserire?\n-Difficoltà facile: 3 - 5;\n" +
+            "-Difficoltà media: 6 - 8;\n-Difficoltà difficile: 9 - 10.\n";
+    public static final String MESSAGGIO_EVOCAZIONE = " procedi all'evocazione";
+    public static final String MESSAGGIO_LANCIO_PIETRE = "Il tamagolem di %s lancia una Pietra %s, quello di %s usa una Roccia di tipo %s";
+    public static final String MESSAGGIO_DANNO_PIETRE = "Il tamagolem di %s ha subito danni dalla Pietra %s\n";
+    public static final String MESSAGGIO_PARITA_PIETRE = "Le Pietre si annullano a vicenda, non c'è stato danno";
+    public static final String MORTE_TAMAGOLEM = "Il tamagolem di %s è stato sconfitto";
+
     public String nuovaPartita(){
 
         Random caso= new Random();
