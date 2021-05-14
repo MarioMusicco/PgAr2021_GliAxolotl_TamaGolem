@@ -24,18 +24,25 @@ public class CostantiTesto {
     public static final String NOME_PRIMO_ALLIEVO = "Allievo numero Uno inserisci il tuo nome: ";
     public static final String NOME_SECONDO_ALLIEVO = "Allievo numero Due inserisci il tuo nome: ";
     public static final String ANNUNCIO_GIOCATORE_1 = "Inizierà il giocatore ";
+
     public static final String RICHIESTA_DIFFICOLTA = "Quanti elementi volete inserire?\n-Difficoltà facile: 3 - 5;\n" +
             "-Difficoltà media: 6 - 8;\n-Difficoltà difficile: 9 - 10.\n";
+
+    public static final String NON_SBIRCIARE= "%s girati e non sbriciare finchè %s non ha finito...\nO SUBIRAI LA FURIA DEGLI DEI DEGLI ELEMENTI!";
+
     public static final String MESSAGGIO_EVOCAZIONE = " procedi all'evocazione";
+    public static final String MESSAGGIO_SACCHETTO = "Il sacchetto di Pietre contiene:";
+    public static final String QTA_E_TIPO_DI_PIETRE = "- %d pietre di tipo %s";
+    public static final String RICHIESTA_PIETRA = "Inserisci il nome della pietra da assegnare --> ";
+    public static final String INESISTENZA_PIETRA_INSERITA = "Non esiste una Pietra con quel nome";
+
+    public static final String MESSAGGIO_RIMESCOLO_PIETRE = "Vi preghiamo di portare pazienza.\nDato il fatto che: le pietre dei giocatori avevano lo stsso ordine, un'entità superiore è intervenuta e ha rimescolato l'ordine delle pietre di entrambi i giocatori";
+
     public static final String MESSAGGIO_LANCIO_PIETRE = "Il tamagolem di %s lancia una Pietra %s, quello di %s usa una Roccia di tipo %s";
     public static final String MESSAGGIO_DANNO_PIETRE = "Il tamagolem di %s ha subito danni dalla Pietra %s\n";
-    public static final String MESSAGGIO_PARITA_PIETRE = "Le Pietre si annullano a vicenda, non c'è stato danno";
-    public static final String MESSAGGIO_SACCHETTO = "Il sacchetto di Pietre contiene:";
+    public static final String MESSAGGIO_PARITA_PIETRE = "Le Pietre si annullano a vicenda, non c'è stato danno\n";
     public static final String MORTE_TAMAGOLEM = "Il tamagolem di %s è stato sconfitto";
-    public static final String QTA_E_TIPO_DI_PIETRE = "- %d pietre di tipo %s";
-    public static final String RICHIESTA_PIETRA = "Inserisci il nome della pietra da assegnare";
-    public static final String INESISTENZA_PIETRA_INSERITA = "Non esiste una Pietra con quel nome";
-    public static final String MESSAGGIO_RIMESCOLO_PIETRE = "Dato il fatto che: le pietre dei giocatori avevano lo stsso ordine, un'entità superiore è intervenuta e ha rimescolato l'ordine delle pietre del g1";
+
     public static final String PREMI_INVIO_PER_CONTINUARE = "Premi invio per continuare...";
 
     public static String nuovaPartita(){

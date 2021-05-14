@@ -46,8 +46,11 @@ public class Allievo {
      * (andando a controllare che siano disponibili)
      * @param scortaPietre
      */
-    public void evocazione(ArrayList<Pietra> scortaPietre) {
+    public void evocazione(ArrayList<Pietra> scortaPietre, String nome_avversario) {
 
+        System.out.println(String.format(CostantiTesto.NON_SBIRCIARE, nome_avversario, nome));
+        System.out.println(nome + CostantiTesto.MESSAGGIO_EVOCAZIONE);
+        GestioneSchermo.pausa();
         TamaGolem golem = new TamaGolem();
 
         for (int i = 0; i < CostantiNumeriche.getP(); i++) {
@@ -88,6 +91,9 @@ public class Allievo {
         }
 
         tamagolem.add(golem);
+
+        GestioneSchermo.ClearConsole();
+        GestioneSchermo.pausa();
     }
 
     /**

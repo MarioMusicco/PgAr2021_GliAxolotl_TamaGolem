@@ -2,10 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="13708b66-cfcc-4c47-8439-a0a74c92e284" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it/unibs/pga/tamagolem/Allievo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it/unibs/pga/tamagolem/Allievo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/it/unibs/pga/tamagolem/Battaglia.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it/unibs/pga/tamagolem/Battaglia.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/it/unibs/pga/tamagolem/CostantiTesto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it/unibs/pga/tamagolem/CostantiTesto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it/unibs/pga/tamagolem/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it/unibs/pga/tamagolem/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it/unibs/pga/tamagolem/PacchettoPietre.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it/unibs/pga/tamagolem/PacchettoPietre.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it/unibs/pga/tamagolem/Pietra.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it/unibs/pga/tamagolem/Pietra.java" afterDir="false" />
     </list>
+    <list id="8f6184da-7e16-448e-8aeb-fb955341e9c4" name="Changes by franc" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -75,19 +79,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
@@ -117,7 +108,8 @@
       <workItem from="1620892939550" duration="14875000" />
       <workItem from="1620919456041" duration="4803000" />
       <workItem from="1620931776715" duration="4501000" />
-      <workItem from="1620982386002" duration="8921000" />
+      <workItem from="1620982386002" duration="10982000" />
+      <workItem from="1621010257021" duration="4320000" />
     </task>
     <servers />
   </component>
@@ -135,16 +127,5 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/it/unibs/pga/tamagolem/Battaglia.java</url>
-          <line>15</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

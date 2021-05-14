@@ -50,8 +50,21 @@ public class Battaglia {
         return equilibrio;
     }
 
+    /**
+     * metodo che permette lo svolgersi dello scontro,
+     * andando a far evocare i tamagolem agli allievi,
+     * facendo avvenire il lancio delle pietre,
+     * gestendo i turni, la morte e la sostituzione dei tamagolem.
+     * andando poi a rendere il booleano is_vincitore di uno dei due allievi
+     * quando questi finirebbe per sconfiggere l'avversario
+     *
+     * @param allievo1
+     * @param allievo2
+     * @param pacchetto_pietre
+     */
     private void faseII(Allievo allievo1, Allievo allievo2, PacchettoPietre pacchetto_pietre){
 
+        //creazione del sacchetto contenente le pietre degli elementi, presenti S/N volte così da poterle prendere più volte
         ArrayList<Pietra> scortaPietre = new ArrayList<Pietra>();
         for (int i = 0; i < CostantiNumeriche.getN(); i++) {
             for (int j = 0; j < CostantiNumeriche.getS() / CostantiNumeriche.getN(); j++) {
@@ -59,19 +72,9 @@ public class Battaglia {
             }
         }
 
-        //evocazione iniziale
-
-        System.out.println(allievo1.getNome() + CostantiTesto.MESSAGGIO_EVOCAZIONE);
-        allievo1.evocazione(scortaPietre);
-
-        GestioneSchermo.ClearConsole();
-        GestioneSchermo.pausa();
-
-        System.out.println( allievo2.getNome() + CostantiTesto.MESSAGGIO_EVOCAZIONE);
-        allievo2.evocazione(scortaPietre);
-
-        GestioneSchermo.ClearConsole();
-        GestioneSchermo.pausa();
+        //evocazione iniziale e creazione delle variabili che serviranno a gestire il flusso del gioco
+        allievo1.evocazione(scortaPietre, allievo2.getNome());
+        allievo2.evocazione(scortaPietre, allievo1.getNome());
 
         int turno_pietra_1=0;
         int golem_g1_attuale=0;
@@ -81,7 +84,7 @@ public class Battaglia {
         controlloPietre(allievo1.getTamagolem().get(golem_g1_attuale).getPietre_degli_elementi(), allievo2.getTamagolem().get(golem_g2_attuale).getPietre_degli_elementi());
 
         do{
-            //scontro
+            //lancio delle pietre, prendo le due pietre che verranno usate a questo turno
             Pietra ptg1= allievo1.getTamagolem().get(golem_g1_attuale).getPietre_degli_elementi().get(turno_pietra_1);
             Pietra ptg2= allievo2.getTamagolem().get(golem_g2_attuale).getPietre_degli_elementi().get(turno_pietra_2);
 
@@ -91,6 +94,8 @@ public class Battaglia {
             int danno= ptg1.getDanni_elementi().get(ptg2.getNome());
             int new_HP;
 
+            //controllo delle interazioni, se l'interazione della pietra uno con la due è positiva
+            //sarà il primo tamagolem a subire danno, altrimenti avviene il contrario o le interazioni sono nulle
             if (danno>0){
                 new_HP= allievo1.getTamagolem().get(golem_g1_attuale).getHP() -danno;
                 allievo1.getTamagolem().get(golem_g1_attuale).setHP(new_HP);
@@ -103,9 +108,8 @@ public class Battaglia {
                 System.out.println(CostantiTesto.MESSAGGIO_PARITA_PIETRE);
             }
 
-            //evocazioni successive
-            //isVincitore= true
-            if(allievo1.getTamagolem().get(golem_g1_attuale).getHP()<=0) {
+            //evocazioni successive in caso di morte di uno dei due tamagolem
+            if(allievo1.getTamagolem().get(golem_g1_attuale).getHP()<=0) {//muore quello dell'allievo1
                 System.out.println(String.format(CostantiTesto.MORTE_TAMAGOLEM, allievo1.getNome() ));
                 if (allievo1.getTamagolem().size() == CostantiNumeriche.getG()) {
                     allievo2.setIs_vincitore(true);
@@ -113,31 +117,30 @@ public class Battaglia {
                 else{
                     GestioneSchermo.pausa();
                     System.out.println("");
-                    allievo1.evocazione(scortaPietre);
+                    allievo1.evocazione(scortaPietre, allievo2.getNome());
                     golem_g1_attuale++;
                     turno_pietra_1=0;
                     turno_pietra_2= resetPietreVicitore(turno_pietra_2, allievo2, golem_g2_attuale);
                     controlloPietre(allievo1.getTamagolem().get(golem_g1_attuale).getPietre_degli_elementi(), allievo2.getTamagolem().get(golem_g2_attuale).getPietre_degli_elementi());
                 }
-            }else if(allievo2.getTamagolem().get(golem_g2_attuale).getHP()<=0){
+            }else if(allievo2.getTamagolem().get(golem_g2_attuale).getHP()<=0){//muore quello dell'allievo2
                 System.out.println(String.format(CostantiTesto.MORTE_TAMAGOLEM, allievo2.getNome() ));
                 if (allievo2.getTamagolem().size() == CostantiNumeriche.getG()) {
                     allievo1.setIs_vincitore(true);
                 }else{
                     GestioneSchermo.pausa();
                     System.out.println("");
-                    allievo2.evocazione(scortaPietre);
+                    allievo2.evocazione(scortaPietre, allievo1.getNome());
                     golem_g2_attuale++;
                     turno_pietra_1= resetPietreVicitore(turno_pietra_1, allievo1, golem_g1_attuale);
                     turno_pietra_2=0;
                     controlloPietre(allievo1.getTamagolem().get(golem_g1_attuale).getPietre_degli_elementi(), allievo2.getTamagolem().get(golem_g2_attuale).getPietre_degli_elementi());
                 }
-            }else {
+            }else {//passo al prossimo turno delle pietre e quindi alla prossima pietra nell'arraylist
                 turno_pietra_1 = (turno_pietra_1 + 1) % CostantiNumeriche.getP();
                 turno_pietra_2 = (turno_pietra_2 + 1) % CostantiNumeriche.getP();
             }
 
-            //GestioneSchermo.pausa();
             GestioneSchermo.pausa3sec();
 
         }while(!allievo1.isIs_vincitore() && !allievo2.isIs_vincitore());
@@ -238,6 +241,7 @@ public class Battaglia {
 
             if(pietre_golem_1.equals(pietre_golem_2)){
                 Collections.shuffle(pietre_golem_1);
+                Collections.shuffle(pietre_golem_2);
                 System.out.println(CostantiTesto.MESSAGGIO_RIMESCOLO_PIETRE);
             }else{
                 uguali= true;

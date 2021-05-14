@@ -21,6 +21,11 @@ public class Pietra {
         return danni_elementi;
     }
 
+    /**
+     * metodo che va a porre nella mappa dei danni il danno dato dall'interazione
+     * con un altro elemento, utilizzando lo stesso come chiave
+     * @param potenza
+     */
     public void creaDanno(int[] potenza){
 
         for (int i=0; i< CostantiNumeriche.getN(); i++){
