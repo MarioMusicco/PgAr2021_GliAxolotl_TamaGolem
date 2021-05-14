@@ -19,7 +19,7 @@ public class CostantiTesto {
 
     private static final String FINE_PARTITA_1= "L'allievo %s ha giocato con l'Equilibrio del Mondo e ne è uscito vincitore";
     private static final String FINE_PARTITA_2= "%s sconfigge l'avversario umiliandolo nel profondo";
-    private static final String FINE_PARTITA_3= "Non importa se vinci di un centimetro o di un chilometro, l'importnte è vincere.\n%s è quindi IL vincitore";//sì e una cit a FF1
+    private static final String FINE_PARTITA_3= "Non importa se vinci di un centimetro o di un chilometro, l'importante è vincere.\n%s è quindi IL vincitore";//sì e una cit a FF1
 
     public static final String NOME_PRIMO_ALLIEVO = "Allievo numero Uno inserisci il tuo nome: ";
     public static final String NOME_SECONDO_ALLIEVO = "Allievo numero Due inserisci il tuo nome: ";
@@ -28,7 +28,7 @@ public class CostantiTesto {
     public static final String RICHIESTA_DIFFICOLTA = "Quanti elementi volete inserire?\n-Difficoltà facile: 3 - 5;\n" +
             "-Difficoltà media: 6 - 8;\n-Difficoltà difficile: 9 - 10.\n";
 
-    public static final String NON_SBIRCIARE= "%s girati e non sbriciare finchè %s non ha finito...\nO SUBIRAI LA FURIA DEGLI DEI DEGLI ELEMENTI!";
+    public static final String NON_SBIRCIARE= "%s girati e non sbirciare finchè %s non ha finito...\nO SUBIRAI LA FURIA DEGLI DEI DEGLI ELEMENTI!";
 
     public static final String MESSAGGIO_EVOCAZIONE = " procedi all'evocazione";
     public static final String MESSAGGIO_SACCHETTO = "Il sacchetto di Pietre contiene:";
@@ -36,7 +36,7 @@ public class CostantiTesto {
     public static final String RICHIESTA_PIETRA = "Inserisci il nome della pietra da assegnare --> ";
     public static final String INESISTENZA_PIETRA_INSERITA = "Non esiste una Pietra con quel nome";
 
-    public static final String MESSAGGIO_RIMESCOLO_PIETRE = "Vi preghiamo di portare pazienza.\nDato il fatto che: le pietre dei giocatori avevano lo stsso ordine, un'entità superiore è intervenuta e ha rimescolato l'ordine delle pietre di entrambi i giocatori";
+    public static final String MESSAGGIO_RIMESCOLO_PIETRE = "Vi preghiamo di portare pazienza.\nDato il fatto che: le pietre dei giocatori avevano lo stesso ordine, un'entità superiore è intervenuta e ha rimescolato l'ordine delle pietre di entrambi i giocatori";
 
     public static final String MESSAGGIO_LANCIO_PIETRE = "Il tamagolem di %s lancia una Pietra %s, quello di %s usa una Roccia di tipo %s";
     public static final String MESSAGGIO_DANNO_PIETRE = "Il tamagolem di %s ha subito danni dalla Pietra %s\n";
