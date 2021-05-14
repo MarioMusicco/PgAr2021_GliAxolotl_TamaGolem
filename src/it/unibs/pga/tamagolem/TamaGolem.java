@@ -24,6 +24,10 @@ public class TamaGolem {
         return pietre_degli_elementi;
     }
 
+    public void setPietre_degli_elementi(ArrayList<Pietra> pietre_degli_elementi) {
+        this.pietre_degli_elementi = pietre_degli_elementi;
+    }
+
     public void daiPietre(Pietra pt){
         pietre_degli_elementi.add(pt);
     }

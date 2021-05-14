@@ -3,6 +3,7 @@ package it.unibs.pga.tamagolem;
 import it.unibs.fp.mylib.InputDati;
 
 import java.util.ArrayList;
+import java.util.*;
 import java.util.Random;
 
 public class Battaglia {
@@ -12,7 +13,7 @@ public class Battaglia {
         String primo_nome= InputDati.leggiStringa("Allievo numero Uno iserisci il tuo nome: ");
         String secondo_nome= InputDati.leggiStringa("Allievo numero Due iserisci il tuo nome:");
 
-        Equilibrio pacchetto_pietre= faseI();
+        PacchettoPietre pacchetto_pietre= faseI();
 
         Allievo allievo1;
         Allievo allievo2;
@@ -31,81 +32,17 @@ public class Battaglia {
 
     }
 
-    private Equilibrio faseI (){
+    private PacchettoPietre faseI (){
 
         //domanda
         int num_elementi= InputDati.leggiIntero("Quanti elementi volete inserire?", 3, 10);
         new CostantiNumeriche(num_elementi);
 
-        int[][] matrice= new int[num_elementi][num_elementi];
-
-        //crea equilibrio
-        for (int i= 0; i< CostantiNumeriche.getN(); i++){
-            for (int j=i; j< CostantiNumeriche.getN(); j++){
-
-                long inizio_tempo= System.currentTimeMillis();
-                long fine_tempo= inizio_tempo+ 1000;
-
-                if(i==j) {
-                    matrice[i][j] = 0;
-
-                }else if(j== CostantiNumeriche.getN()-1 ){
-
-                    //penultima riga, terzultima colonna
-                    int interazione_totale=0;
-                    for (int k=0; k<j; k++){
-                        interazione_totale+= matrice[i][k];
-                    }
-                    matrice[i][j]= -interazione_totale;
-                    matrice[j][i]= interazione_totale;
-
-                }else{
-
-                    boolean valido= false;
-                    do {
-
-                        //creo un'interazione tra un elemento e un altro
-                        matrice[i][j] = creaInterazione();
-                        //creo l'opposto di quella interazione(l'altro con l'uno)
-                        matrice[j][i] = -matrice[i][j];
-
-                        int interazione_parziale_oriz=0;
-                        int interazione_parziale_vert=0;
-                        for (int k = 0; k <= j; k++) {
-                            interazione_parziale_oriz += matrice[i][k];
-                        }
-                        for (int h=0; h<=i; h++){
-                            interazione_parziale_vert+= matrice[h][j];
-                        }
-
-                        if(controlloValidoPenultimo(j, interazione_parziale_oriz)){
-                            if(Math.abs(interazione_parziale_oriz)< CostantiNumeriche.HPMAX*(CostantiNumeriche.getN()-1 -j)) {
-                                valido = true;
-                                if(i== CostantiNumeriche.getN()-3 && j== CostantiNumeriche.getN()-2 ){
-                                    if(Math.abs(interazione_parziale_vert)>CostantiNumeriche.HPMAX || Math.abs(interazione_parziale_vert)== 0){
-                                        valido = false;
-                                    }
-                                }
-                            }
-                        }
-
-                        if(System.currentTimeMillis()> fine_tempo){
-                            i=0;
-                            j=-1;
-                            break;
-                        }
-
-                    }while (!valido);
-                }
-            }
-        }
-
-
-        Equilibrio equilibrio= new Equilibrio(matrice);
+        PacchettoPietre equilibrio= new PacchettoPietre();
         return equilibrio;
     }
 
-    private void faseII(Allievo allievo1, Allievo allievo2, Equilibrio pacchetto_pietre){
+    private void faseII(Allievo allievo1, Allievo allievo2, PacchettoPietre pacchetto_pietre){
 
         ArrayList<Pietra> scortaPietre = new ArrayList<Pietra>();
         for (int i = 0; i < CostantiNumeriche.getN(); i++) {
@@ -133,11 +70,15 @@ public class Battaglia {
         int turno_pietra_2=0;
         int golem_g2_attuale=0;
 
+        controlloPietre(allievo1.getTamagolem().get(golem_g1_attuale).getPietre_degli_elementi(), allievo2.getTamagolem().get(golem_g2_attuale).getPietre_degli_elementi());
+
         do{
             //scontro
             Pietra ptg1= allievo1.getTamagolem().get(golem_g1_attuale).getPietre_degli_elementi().get(turno_pietra_1);
             Pietra ptg2= allievo2.getTamagolem().get(golem_g2_attuale).getPietre_degli_elementi().get(turno_pietra_2);
 
+            System.out.println(String.format("Il tamagolem di %s lancia una Pietra %s, quello di %s usa una Roccia di tipo %s", allievo1.getNome(), allievo1.getTamagolem().get(golem_g1_attuale).getPietre_degli_elementi().get(turno_pietra_1).getNome(),
+                    allievo2.getNome(),  allievo2.getTamagolem().get(golem_g2_attuale).getPietre_degli_elementi().get(turno_pietra_2).getNome()));
 
             int danno= ptg1.getDanni_elementi().get(ptg2.getNome());
             int new_HP;
@@ -145,13 +86,13 @@ public class Battaglia {
             if (danno>0){
                 new_HP= allievo1.getTamagolem().get(golem_g1_attuale).getHP() -danno;
                 allievo1.getTamagolem().get(golem_g1_attuale).setHP(new_HP);
-                System.out.println("Il tamagolem di "+ allievo1.getNome() +" ha subito -- danni");
+                System.out.println(String.format("Il tamagolem di %s ha subito danni dalla Pietra %s\n",  allievo1.getNome() , allievo2.getTamagolem().get(golem_g2_attuale).getPietre_degli_elementi().get(turno_pietra_2).getNome()));
             }else if(danno<0){
                 new_HP= allievo2.getTamagolem().get(golem_g2_attuale).getHP() +danno;
                 allievo2.getTamagolem().get(golem_g2_attuale).setHP(new_HP);
-                System.out.println("Il tamagolem di "+ allievo2.getNome() +" ha subito -- danni");
+                System.out.println(String.format("Il tamagolem di %s ha subito danni dalla Pietra %s\n",  allievo2.getNome(), allievo1.getTamagolem().get(golem_g1_attuale).getPietre_degli_elementi().get(turno_pietra_1).getNome()));
             }else{
-                System.out.println("Le pietre si annullano a vicenda, non c'è stato danno");
+                System.out.println("Le Pietre si annullano a vicenda, non c'è stato danno"+ allievo2.getTamagolem().get(golem_g2_attuale).getPietre_degli_elementi().get(turno_pietra_2).getNome());
             }
 
             //evocazioni successive
@@ -167,10 +108,10 @@ public class Battaglia {
                     allievo1.evocazione(scortaPietre);
                     golem_g1_attuale++;
                     turno_pietra_1=0;
+                    turno_pietra_2= resetPietreVicitore(turno_pietra_2, allievo2, golem_g2_attuale);
+                    controlloPietre(allievo1.getTamagolem().get(golem_g1_attuale).getPietre_degli_elementi(), allievo2.getTamagolem().get(golem_g2_attuale).getPietre_degli_elementi());
                 }
-            }
-
-            if(allievo2.getTamagolem().get(golem_g2_attuale).getHP()<=0){
+            }else if(allievo2.getTamagolem().get(golem_g2_attuale).getHP()<=0){
                 System.out.println("Il tamagolem di "+ allievo2.getNome() +" è stato sconfitto");
                 if (allievo2.getTamagolem().size() == CostantiNumeriche.getG()) {
                     allievo1.setIs_vincitore(true);
@@ -179,12 +120,14 @@ public class Battaglia {
                     System.out.println("");
                     allievo2.evocazione(scortaPietre);
                     golem_g2_attuale++;
+                    turno_pietra_1= resetPietreVicitore(turno_pietra_1, allievo1, golem_g1_attuale);
                     turno_pietra_2=0;
+                    controlloPietre(allievo1.getTamagolem().get(golem_g1_attuale).getPietre_degli_elementi(), allievo2.getTamagolem().get(golem_g2_attuale).getPietre_degli_elementi());
                 }
+            }else {
+                turno_pietra_1 = (turno_pietra_1 + 1) % CostantiNumeriche.getP();
+                turno_pietra_2 = (turno_pietra_2 + 1) % CostantiNumeriche.getP();
             }
-
-            turno_pietra_1= (turno_pietra_1 +1)%CostantiNumeriche.getP();
-            turno_pietra_2= (turno_pietra_2 +1)%CostantiNumeriche.getP();
 
             //GestioneSchermo.pausa();
             GestioneSchermo.pausa2sec();
@@ -192,7 +135,15 @@ public class Battaglia {
         }while(!allievo1.isIs_vincitore() && !allievo2.isIs_vincitore());
     }
 
-    private void faseIII(Allievo allievo1, Allievo allievo2, Equilibrio pacchetto_di_pietre){
+    /**
+     * metodo che mi decreta il vincitore
+     * in base al numero di tamagolem, cioè in base all'allievo che non ha più tamagolem,
+     * l'altro viene annunciato vincitore
+     * @param allievo1
+     * @param allievo2
+     * @param pacchetto_di_pietre
+     */
+    private void faseIII(Allievo allievo1, Allievo allievo2, PacchettoPietre pacchetto_di_pietre){
 
         if (allievo1.isIs_vincitore()){
             System.out.println(String.format(CostantiTesto.finePartita(), allievo1.getNome()));
@@ -200,45 +151,95 @@ public class Battaglia {
             System.out.println(String.format(CostantiTesto.finePartita(), allievo2.getNome()));
         }
 
-        //rivelazione equilibrio
-        for (int i=0; i<= CostantiNumeriche.getN(); i++){
-            for (int j=0; j<= CostantiNumeriche.getN(); j++){
-                if (i==0 && j==0) {
-                    //System.out.print("---------");
-                }else if (i==0){
-                    //System.out.print(String.valueOf(Elementi.values()[j-1]) + " ");
-                }else if(j==0){
-                    //System.out.print(pacchetto_di_pietre.getEquilibrio_del_mondo().get(i-1).getNome() + " ");
-                }else{
-                    System.out.print(pacchetto_di_pietre.getEquilibrio_del_mondo().get(i-1).getDanni_elementi().get(String.valueOf(Elementi.values()[j-1]))+ " ");
-                  }
+        //stampa l'equilibrio del mondo per quella partita
+        int[][] matrice;
+        matrice = trasformaMatrice(pacchetto_di_pietre);
+        stampaEquilibrio(matrice);
+
+    }
+
+    /**
+     * metodo che mi trasforma la mappa in una matrice  da stampare
+     * @param pacchetto_di_pietre
+     * @return matrice equilibrio
+     */
+    private int[][] trasformaMatrice(PacchettoPietre pacchetto_di_pietre){
+        int[][] matrice = new int[CostantiNumeriche.getN()][CostantiNumeriche.getN()];
+
+        //prendo il valore che l'equilibrio ha generato per le pietre e lo inserisco in una matrice da stamoare
+        for(int i =0; i < CostantiNumeriche.getN(); i++){
+            for(int j = 0; j < CostantiNumeriche.getN(); j++){
+                matrice[i][j] = pacchetto_di_pietre.getEquilibrio_del_mondo().get(i).getDanni_elementi().get(String.valueOf(Elementi.values()[j]));
             }
         }
-
+        return matrice;
     }
 
-    private int creaInterazione(){
+    /**
+     * metodo per la stampa a video dell'equilibrio
+     * @param matrice
+     */
+    private void stampaEquilibrio(int[][] matrice){
 
-        int interazione;
-        boolean segno;
-        Random rn = new Random ();
-
-        interazione= rn.nextInt(CostantiNumeriche.HPMAX)+1;
-
-        segno= rn.nextBoolean();
-        if(!segno){
-            interazione= -interazione;
+        //prima riga mi stampa solo elementi a cui poi verranno incolonnati i valori dei danni
+        System.out.println("");
+        for (int i = 0; i <= CostantiNumeriche.getN(); i++){
+            if (i == 0){
+                System.out.print(String.format("%10c", '|'));
+            }else{
+                System.out.print(String.format("%9s", String.valueOf(Elementi.values()[i - 1])) + "|");
+            }
         }
-
-        return interazione;
-    }
-
-    private boolean controlloValidoPenultimo(int pos, int interazione){
-
-        if (pos== CostantiNumeriche.getN()-2 && interazione==0){
-            return false;
+        System.out.println("");
+        //greghina separatricedi righe
+        for(int k = 0; k < (CostantiNumeriche.getN()+1)*10; k++){
+            System.out.print("-");
         }
-        return true;
+        System.out.println("");
+        //stampa della matrice dove la prima colonna sono gli elementi e il resto sono i valori dei danni effettuati, se il numero è
+        //positivo, o subiti se il numero è negativo
+        for(int i = 0; i < CostantiNumeriche.getN(); i++){
+            for(int j = 0; j <= CostantiNumeriche.getN(); j++){
+                if(j == 0){
+                    System.out.print(String.format("%9s", String.valueOf(Elementi.values()[i])) + "|");
+                }else{
+                    System.out.print(String.format("%9d", matrice[i][j-1]) + "|");
+                }
+            }
+            System.out.println("");
+            for(int k = 0; k < (CostantiNumeriche.getN() + 1)*10; k++){
+                System.out.print("-");
+            }
+            System.out.println("");
+        }
+        System.out.println("");
     }
 
+
+    private void controlloPietre(ArrayList<Pietra> pietre_golem_1, ArrayList<Pietra> pietre_golem_2){
+
+        boolean uguali= false;
+        do{
+
+            if(pietre_golem_1.equals(pietre_golem_2)){
+                Collections.shuffle(pietre_golem_1);
+                System.out.println("Dato il fatto che: le pietre dei giocatori avevano lo stsso ordine, " +
+                        "un'entità superiore è intervenuta e ha rimescolato l'ordine delle pietre del g1");
+            }else{
+                uguali= true;
+            }
+
+        }while(!uguali);
+    }
+
+    public int resetPietreVicitore(int turno_pietra, Allievo allievo, int golem_attuale){
+        turno_pietra= (turno_pietra +1)%CostantiNumeriche.getP();
+        for (int i=0; i<turno_pietra; i++){
+            Pietra pt_temp= allievo.getTamagolem().get(golem_attuale).getPietre_degli_elementi().get(i);
+            allievo.getTamagolem().get(golem_attuale).getPietre_degli_elementi().remove(i);
+            allievo.getTamagolem().get(golem_attuale).getPietre_degli_elementi().add(pt_temp);
+        }
+        turno_pietra= 0;
+        return turno_pietra;
+    }
 }
