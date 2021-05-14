@@ -2,11 +2,16 @@ package it.unibs.pga.tamagolem;
 
 public class CostantiNumeriche {
 
+    //vita massima tamagolem
     public static final int HPMAX= 20;
 
+    //num elementi
     private static int N;
+    //num pietre per golem
     private static int P;
+    //num golem per allievo
     private static int G;
+    //num pietre nel sacchetto
     private static int S;
 
     public CostantiNumeriche(int N) {

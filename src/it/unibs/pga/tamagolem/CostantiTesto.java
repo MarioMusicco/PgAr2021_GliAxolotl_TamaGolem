@@ -2,6 +2,8 @@ package it.unibs.pga.tamagolem;
 
 import java.util.Random;
 
+
+//questa classe contiene metodi statici che scelgono in modo randomico tra più stringhe possibili
 public class CostantiTesto {
 
     private static final String ERRORE= "Qualcosa non ha funzionato nella stampa delle stringhe, vai a controllare";
@@ -28,9 +30,15 @@ public class CostantiTesto {
     public static final String MESSAGGIO_LANCIO_PIETRE = "Il tamagolem di %s lancia una Pietra %s, quello di %s usa una Roccia di tipo %s";
     public static final String MESSAGGIO_DANNO_PIETRE = "Il tamagolem di %s ha subito danni dalla Pietra %s\n";
     public static final String MESSAGGIO_PARITA_PIETRE = "Le Pietre si annullano a vicenda, non c'è stato danno";
+    public static final String MESSAGGIO_SACCHETTO = "Il sacchetto di Pietre contiene:";
     public static final String MORTE_TAMAGOLEM = "Il tamagolem di %s è stato sconfitto";
+    public static final String QTA_E_TIPO_DI_PIETRE = "- %d pietre di tipo %s";
+    public static final String RICHIESTA_PIETRA = "Inserisci il nome della pietra da assegnare";
+    public static final String INESISTENZA_PIETRA_INSERITA = "Non esiste una Pietra con quel nome";
+    public static final String MESSAGGIO_RIMESCOLO_PIETRE = "Dato il fatto che: le pietre dei giocatori avevano lo stsso ordine, un'entità superiore è intervenuta e ha rimescolato l'ordine delle pietre del g1";
+    public static final String PREMI_INVIO_PER_CONTINUARE = "Premi invio per continuare...";
 
-    public String nuovaPartita(){
+    public static String nuovaPartita(){
 
         Random caso= new Random();
         int stringa_da_stampare= caso.nextInt(3);
@@ -47,7 +55,7 @@ public class CostantiTesto {
         return ERRORE;
     }
 
-    public String ulteriorePartita(){
+    public static String ulteriorePartita(){
 
         Random caso= new Random();
         int stringa_da_stampare= caso.nextInt(2);

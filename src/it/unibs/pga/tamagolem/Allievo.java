@@ -39,6 +39,13 @@ public class Allievo {
     }
 
 
+    /**
+     * metodo che permette di evocare un tamagolem.
+     * inizia dicendo che pietre ci sono nel sacchetto,
+     * poi chiede al giocatore di inserire le varie pietre da dare al golem
+     * (andando a controllare che siano disponibili)
+     * @param scortaPietre
+     */
     public void evocazione(ArrayList<Pietra> scortaPietre) {
 
         TamaGolem golem = new TamaGolem();
@@ -46,26 +53,24 @@ public class Allievo {
         for (int i = 0; i < CostantiNumeriche.getP(); i++) {
 
             //stampa delle pietre disponibili
-            System.out.println("Il sacchetto di Pietre contiene:");
+            System.out.println(CostantiTesto.MESSAGGIO_SACCHETTO);
             int num_pietre = 0;
             int tipo_pietra = 0;
-            int r;
             for (int p = 0; p < scortaPietre.size(); p++) {
-                r = p + 1;
                 if (controlloQtaPietre(p, scortaPietre)) {
                     num_pietre++;
                 } else {
                     num_pietre++;
-                    System.out.println(String.format("- %d pietre di tipo %s", num_pietre, scortaPietre.get(p).getNome(), tipo_pietra));
+                    System.out.println(String.format(CostantiTesto.QTA_E_TIPO_DI_PIETRE, num_pietre, scortaPietre.get(p).getNome(), tipo_pietra));
                     tipo_pietra++;
                     num_pietre = 0;
                 }
             }
 
-            //prendo la pietra richiesta e la dò al golem
+            //prendo la pietra richiesta e la dò al golem se disponibile
             boolean pietra_valida = false;
             do {
-                String pietra_assegnata = InputDati.leggiStringa("Inserisci il nome della pietra da assegnare");
+                String pietra_assegnata = InputDati.leggiStringa(CostantiTesto.RICHIESTA_PIETRA);
                 int j;
                 for (j = 0; j < scortaPietre.size(); j++) {
                     if (pietra_assegnata.equalsIgnoreCase(scortaPietre.get(j).getNome())) {
@@ -77,7 +82,7 @@ public class Allievo {
                     }
                 }
                 if (j >= scortaPietre.size())
-                    System.out.println("Non esiste una Pietra con quel nome");
+                    System.out.println(CostantiTesto.INESISTENZA_PIETRA_INSERITA);
 
             } while (!pietra_valida);
         }

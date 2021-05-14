@@ -8,14 +8,17 @@ public class PacchettoPietre {
     private ArrayList<Pietra> pietre_dell_equilibrio= new ArrayList<Pietra>();
 
     public PacchettoPietre() {
-        addPietra();
+        addPietre();
     }
 
     public ArrayList<Pietra> getEquilibrio_del_mondo() {
         return pietre_dell_equilibrio;
     }
 
-    private void addPietra (){
+    /**
+     * metodo che serve al costruttore per aggiungere le pietre di tutti gli elementi all'arraylist
+     */
+    private void addPietre (){
 
         int potenza [][]= creaEquilibrio();
 
@@ -25,6 +28,13 @@ public class PacchettoPietre {
         }
     }
 
+    /**
+     * metodo che crea l'equilibrio del mondo.
+     * crea e riempie una matrice con tutte le interazione tra i vari elementi,
+     * andando a controllare che le interazini (in abs) non superino i ps massimi del golem
+     * e che non siano mai nulle tranne che con elementi uguali
+     * @return
+     */
     private int[][] creaEquilibrio(){
 
         int[][] matrice= new int[CostantiNumeriche.getN()][CostantiNumeriche.getN()];

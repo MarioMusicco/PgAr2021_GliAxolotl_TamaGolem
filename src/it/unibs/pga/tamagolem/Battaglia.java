@@ -7,6 +7,11 @@ import java.util.*;
 
 public class Battaglia {
 
+    /**
+     * metodo che permette lo svolgere del combattimento,
+     * andando a creare i due allievi-avversari
+     * e chiamando le tre fasi che compongono il combattimento
+     */
     public void combattimento(){
 
         String primo_nome= InputDati.leggiStringa(CostantiTesto.NOME_PRIMO_ALLIEVO);
@@ -19,7 +24,6 @@ public class Battaglia {
         if(System.currentTimeMillis()%2==0){
             allievo1= new Allievo(primo_nome);
             allievo2= new Allievo(secondo_nome);
-            //domanda
             System.out.println(CostantiTesto.ANNUNCIO_GIOCATORE_1 + allievo1.getNome());
         }else{
             allievo1= new Allievo(secondo_nome);
@@ -31,6 +35,11 @@ public class Battaglia {
 
     }
 
+    /**
+     * metodo che permette di creare un pacchetto di pietre e quindi il preliminare equilibrio.
+     * viene chiesto all'utente di inserire il numero di elementi della partita
+     * @return
+     */
     private PacchettoPietre faseI (){
 
         //domanda
@@ -129,7 +138,7 @@ public class Battaglia {
             }
 
             //GestioneSchermo.pausa();
-            GestioneSchermo.pausa2sec();
+            GestioneSchermo.pausa3sec();
 
         }while(!allievo1.isIs_vincitore() && !allievo2.isIs_vincitore());
     }
@@ -144,6 +153,7 @@ public class Battaglia {
      */
     private void faseIII(Allievo allievo1, Allievo allievo2, PacchettoPietre pacchetto_di_pietre){
 
+        //stampa il vincitore
         if (allievo1.isIs_vincitore()){
             System.out.println(String.format(CostantiTesto.finePartita(), allievo1.getNome()));
         }else{
@@ -215,6 +225,12 @@ public class Battaglia {
         return matrice;
     }
 
+    /**
+     * metodo di appoggio che controlla che gli allievi non usino pietre uguali
+     * in ogni singolo turno generando un loop infinito
+     * @param pietre_golem_1
+     * @param pietre_golem_2
+     */
     private void controlloPietre(ArrayList<Pietra> pietre_golem_1, ArrayList<Pietra> pietre_golem_2){
 
         boolean uguali= false;
@@ -222,8 +238,7 @@ public class Battaglia {
 
             if(pietre_golem_1.equals(pietre_golem_2)){
                 Collections.shuffle(pietre_golem_1);
-                System.out.println("Dato il fatto che: le pietre dei giocatori avevano lo stsso ordine, " +
-                        "un'entità superiore è intervenuta e ha rimescolato l'ordine delle pietre del g1");
+                System.out.println(CostantiTesto.MESSAGGIO_RIMESCOLO_PIETRE);
             }else{
                 uguali= true;
             }
@@ -231,6 +246,14 @@ public class Battaglia {
         }while(!uguali);
     }
 
+    /**
+     * metodo di appoggio che, dopo la morte di un tamagolem,
+     * risistema l'ordine delle pietre di quello sopravvissuto
+     * @param turno_pietra
+     * @param allievo
+     * @param golem_attuale
+     * @return
+     */
     public int resetPietreVicitore(int turno_pietra, Allievo allievo, int golem_attuale){
         turno_pietra= (turno_pietra +1)%CostantiNumeriche.getP();
         for (int i=0; i<turno_pietra; i++){
@@ -241,4 +264,5 @@ public class Battaglia {
         turno_pietra= 0;
         return turno_pietra;
     }
+
 }

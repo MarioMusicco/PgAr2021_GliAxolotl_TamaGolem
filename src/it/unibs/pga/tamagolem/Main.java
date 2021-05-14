@@ -6,18 +6,21 @@ public class Main {
 
     public static void main(String[] args) {
 
-       CostantiTesto cst= new CostantiTesto();
-        boolean si_vuole_giocare= InputDati.yesOrNo(cst.nuovaPartita());
+        /*boolean che controlla se si vuole fare una partita
+        e se si vuole farne un'altra dopo la fine di quella precedente
+        */
+        boolean si_vuole_giocare= InputDati.yesOrNo(CostantiTesto.nuovaPartita());
 
         while(si_vuole_giocare){
 
+            //partita in se
             Battaglia btg= new Battaglia();
             btg.combattimento();
 
-
-            if (InputDati.yesOrNo(cst.ulteriorePartita())) {
+            //controllo se si vuole fare un ulteriore partita
+            if (InputDati.yesOrNo(CostantiTesto.ulteriorePartita())) {
                 GestioneSchermo.ClearConsole();
-                si_vuole_giocare = InputDati.yesOrNo(cst.nuovaPartita());
+                si_vuole_giocare = InputDati.yesOrNo(CostantiTesto.nuovaPartita());
             }else{
                 si_vuole_giocare=false;
             }
